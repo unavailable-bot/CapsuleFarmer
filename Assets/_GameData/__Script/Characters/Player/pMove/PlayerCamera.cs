@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Player.pMove
+namespace Characters.Player.pMove
 {
     public class PlayerCamera : MonoBehaviour
     {
