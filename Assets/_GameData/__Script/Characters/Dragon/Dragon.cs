@@ -7,9 +7,11 @@ namespace Characters.Dragon
     {
         private void OnCollisionEnter(Collision other)
         {
-            if (other.gameObject.name == "Hand")
+            if (other.collider.name == "Hand")
             {
-                Health -= 40;
+                int damage = 40;
+                Health -= damage;
+                TakeDamage(damage);
                 if (Health <= 0)
                 {
                     Destroy(this.gameObject);
