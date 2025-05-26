@@ -5,7 +5,9 @@ namespace Characters
     public class Person : MonoBehaviour
     {
         private float health = 100f;
-        public string Name{ get; } = "Farmer Grisha";
+        private string name = "Farmer Grisha";
+
+        public string Name { get => name; }
         
         public float Health
         {
@@ -32,6 +34,11 @@ namespace Characters
                 health = 100;
                 Debug.Log("Health is full");
             }
+        }
+
+        internal virtual void ShowState()
+        {
+            Debug.Log(name);
         }
     }
 }
