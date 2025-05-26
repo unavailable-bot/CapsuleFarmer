@@ -2,23 +2,18 @@ using UnityEngine;
 
 namespace Characters
 {
-    public class Person : MonoBehaviour
+    public abstract class Person : MonoBehaviour
     {
         private float health = 100f;
-        private string name = "Farmer Grisha";
+        internal static string Name => "Farmer Grisha";
 
-        public string Name { get => name; }
-        
-        public float Health
+        internal float Health
         {
             get => health;
-            set
-            {
-                GetDamage(value);
-            }
+            set => CalculateHealth(value);
         }
 
-        private void GetDamage(float value)
+        private void CalculateHealth(float value)
         {
             if (health <= 0)
             {
@@ -35,6 +30,8 @@ namespace Characters
                 Debug.Log("Health is full");
             }
         }
+        
+        internal abstract void TakeDamage(int damageValue);
 
         internal virtual void ShowState()
         {
